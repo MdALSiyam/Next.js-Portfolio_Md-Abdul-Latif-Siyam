@@ -4,7 +4,7 @@ A lightweight Next.js portfolio frontend for Md. Abdul Latif Siyam.
 
 ## Live Portfolio
 
-https://md-abdul-latif-siyam-portfolio-354zvl5x0-mdalsiyam.vercel.app
+https://md-abdul-latif-siyam-portfolio.vercel.app/
 
 ## Run locally
 
