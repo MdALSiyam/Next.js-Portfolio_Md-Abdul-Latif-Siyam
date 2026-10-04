@@ -1,0 +1,94 @@
+Md. Abdul Latif (Siyam) 
+ECB Chattar, Dhaka Cantonment 
+01909424048 / 01636238098 
+mdabdullatifsiyam733@gmail.com 
+mdabdullatifsiyam87@gmail.com 
+GitHub / LinkedIn / Portfolio 
+ 
+Career Objective 
+I am an adaptable Full -Stack Software Developer experienced in building web  and mobile applications, secure APIs, and background 
+services. Proficient across the software stack —combining backend architecture, secure authentication, modern frontends, and 
+database management. Skilled in clean architecture, cloud and DevOps workflows, deployments, and data backups to deliver high -
+performance systems. Dedicated to writing quality code, continuous learning, and solving complex problems collaborating with teams. 
+ 
+Experiences
+Software Engineer (Jul 2025 – Sep 2026) 
+Biometric Team, NAAS Solutions Limited 
+.NET Developer (May 2025 – Jul 2025) 
+Remote Internship, Itransition Group 
+Trainee Programmer (Jun 2024 – May 2025) 
+Contractual, Star Computer Systems Limited 
+ 
+Certifications
+App Development with Flutter Integrating AI & ML 
+National Academy for Computer Training and Research (2026) 
+Cross Platform Apps using ASP .NET, Angular & React 
+IsDB – Bangladesh Islamic Solidarity Educational Wakf (2025) 
+Web Application Development with PHP & Laravel Framework 
+BASIS Institute of Technology & Management (2024) 
+Web Design & UI/UX – Frontend Development 
+eShikhon IT Training Institute (2023)
+ 
+Projects  
+▪ Bio RPT Service 
+Automated .NET service querying Oracle databases to 
+process datasets and generate AES-encrypted CSV reports. 
+▪ EC Login Web Portal 
+Developed a secure ASP .NET EF Core and MVC portal to 
+streamline authentication, authorization, and data access. 
+▪ Dump Data Scheduler 
+Scheduled .NET service that extracts large Oracle datasets, 
+applies AES encryption, and dynamically generates reports. 
+▪ Airflow DAGs 
+Deployed Apache Airflow DAGs to automate file transfers 
+and scheduled data backups to secure remote SFTP location. 
+▪ QC Web Portal 
+Real-time Angular and ASP .NET Core web portal 
+streamlining quality control, testing, and enhance accuracy. 
+▪ Deregistration Portal 
+Developed an Angular and ASP .NET Core portal to process 
+bulk SIM deactivation via CSV with real-time data validation.
+ 
+GitHub URLs
+Link – Angular Pharmacy Management 
+Link – Razor Page Mini Account Portal 
+Link – User Access Management System 
+Link – ASP .NET Single Page Application 
+Link – React Online Learning Platform 
+Link – ASP .NET EF Core Student Portal 
+Link – ADO.NET Art Gallery Web Form 
+Link – MAUI Student Mobile Application 
+Link – Node.js E-commerce Footwear Shop
+ 
+Technical Skills 
+• Programming Languages – C#, SQL, JavaScript (ES6+), TypeScript, HTML5, CSS3, PHP, Python, Dart 
+• Frontend Technologies – Angular, React, Next.js, Blazor, .NET MAUI, Flutter, jQuery, AJAX, Tailwind CSS, Bootstrap 
+• Backend Architecture  – ASP .NET Core, MVC, Razor Pages, Web API, EF Core, ADO.NET, LINQ, Node.js, Express, Laravel 
+• Database Management – MS SQL Server, Oracle, PL/SQL, PostgreSQL, MySQL, MongoDB, Redis, Supabase, SQLite, GraphQL 
+• Workflow Automation – Apache Airflow, DAGs, Automated ETL Pipelines, Scheduled Backups, Bulk Processing 
+• System Security  – AES Encryption, Authentication & Authorization, Identity Management, JWT, OAuth2, SFTP 
+• DevOps Infrastructure – Linux, Docker, Git, Git Bash, GitHub, GitLab, Azure, IIS, Nginx, Vercel, Firebase, CI/CD Pipelines 
+• Reporting Analytics  – Grafana, Crystal Reports, KPI, XML, Dynamic CSV, Excel, PDF & Word Reports Generations 
+• Software Quality  – REST APIs, Postman, Swagger, xUnit, NUnit, Jira, Clean Architecture, SOLID Principles, SDLC etc. 
+ 
+Educations
+IELTS – Academic (2024) 
+Overall – 6.0 out of 9.0 
+Compass Education Limited 
+BSc in Botany (2022) 
+CGPA – 3.10 out of 4.00 
+Jagannath University 
+HSC in Science (2018) 
+GPA – 4.25 out of 5.00 
+Ramiz Uddin Cant. College 
+SSC in Science (2016) 
+GPA – 5.00 out of 5.00 
+Adarsha Biddya Niketan
+ 
+References
+Nishat Sharmeen, Senior Software Engineer 
+Star Computer Systems Limited, Green Road 
+01681448998 / nishatsharmeen@gmail.com 
+Md. Mohsin Alam, Junior Assistant Vice President 
+Shahjalal Islami Bank PLC, Motijheel Branch 
+01917031058 / mohsin3168@sjiblbd.com  

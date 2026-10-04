@@ -5,52 +5,52 @@ import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } fr
 const projects = [
   {
     name: "Bio RPT Service",
-    type: "Backend & data",
-    description: "An automated .NET backend service that fetches Oracle data and generates AES-encrypted CSV reports.",
-    tags: [".NET", "Oracle", "AES"],
+    type: "Backend & Data",
+    description: "An automated .NET backend service that fetches Oracle data and generates AES-encrypted CSV reports with scheduled execution.",
+    tags: [".NET", "Oracle", "AES", "Automation"],
   },
   {
-    name: "EC Login Web",
-    type: "Backend & identity",
-    description: "A secure, scalable login and identity management Web API built with ASP.NET Core 8 and Entity Framework Core.",
-    tags: ["ASP.NET Core", "EF Core", "REST API"],
+    name: "EC Login Web Portal",
+    type: "Backend & Identity",
+    description: "A secure, scalable login and identity management Web API built with ASP.NET Core and Entity Framework Core with OAuth2/JWT support.",
+    tags: ["ASP.NET Core", "EF Core", "REST API", "OAuth2"],
   },
   {
     name: "QC Web Portal",
-    type: "Frontend & workflow",
-    description: "A real-time web application for automated seating, quality control workflows, and compliance tracking.",
-    tags: ["Angular", "Real-time", "Workflow"],
+    type: "Frontend & Workflow",
+    description: "A real-time Angular + ASP.NET Core web application for quality control workflows, automated testing, and compliance tracking.",
+    tags: ["Angular", "ASP.NET Core", "Real-time", "Workflow"],
   },
   {
-    name: "Deregistration",
-    type: "Web portal",
-    description: "A bulk SMS deactivation portal with CSV upload, validation, and a streamlined processing workflow.",
-    tags: ["ASP.NET", "CSV", "Validation"],
+    name: "Deregistration Portal",
+    type: "Web Portal",
+    description: "A bulk SIM deactivation portal with CSV upload, real-time validation, and streamlined processing workflow.",
+    tags: ["ASP.NET", "Angular", "CSV", "Validation"],
   },
   {
-    name: "Dump Data",
-    type: "Backend & data",
-    description: "A scheduled .NET service that extracts Oracle data, encrypts it with AES, and generates automated reports.",
-    tags: [".NET", "Oracle", "AES"],
+    name: "Dump Data Scheduler",
+    type: "Backend & Data",
+    description: "A scheduled .NET Windows Service that extracts large Oracle datasets, applies AES encryption, and generates automated reports.",
+    tags: [".NET", "Oracle", "AES", "Scheduler"],
   },
   {
     name: "Airflow DAGs",
     type: "Cloud & DevOps",
-    description: "Airflow DAGs that automate scheduled file transfers and live server data backups to an SFTP location.",
-    tags: ["Airflow", "SFTP", "Backups"],
+    description: "Apache Airflow DAGs that automate scheduled file transfers and live server data backups to secure SFTP locations with monitoring.",
+    tags: ["Airflow", "SFTP", "Backups", "ETL"],
   },
 ];
 
 const skills = [
-  { icon: "code", label: "Language", value: "C# · SQL · JavaScript (ES6+) · TypeScript · HTML5 · CSS3 · PHP · Python", level: 88 },
-  { icon: "layout", label: "Frontend", value: "Angular · React · Next.js · Vue.js · Blazor · .NET MAUI · jQuery · AJAX · Tailwind CSS · Bootstrap", level: 84 },
-  { icon: "server", label: "Backend", value: "ASP.NET Core (Web API, MVC, Razor) · EF Core · LINQ · ADO.NET · Node.js · Express · Laravel", level: 92 },
-  { icon: "database", label: "Database", value: "Microsoft SQL Server · PostgreSQL · MySQL · MongoDB · Redis · Oracle (PL/SQL)", level: 86 },
-  { icon: "cloud", label: "Cloud & DevOps", value: "Linux · Docker · Apache Airflow · Grafana · Git · Git Bash · GitHub · GitLab · IIS · Nginx", level: 78 },
-  { icon: "check", label: "Testing & Tools", value: "REST APIs · Postman · Swagger · Crystal Reports · XML · xUnit · NUnit · Jira", level: 82 },
+  { icon: "code", label: "Languages", value: "C# · SQL · JavaScript (ES6+) · TypeScript · HTML5 · CSS3 · PHP · Python · Dart", level: 92 },
+  { icon: "layout", label: "Frontend", value: "Angular · React · Next.js · Vue.js · Blazor · .NET MAUI · Flutter · jQuery · Tailwind CSS · Bootstrap", level: 88 },
+  { icon: "server", label: "Backend", value: "ASP.NET Core · MVC · Razor Pages · Web API · EF Core · LINQ · ADO.NET · Node.js · Express · Laravel", level: 94 },
+  { icon: "database", label: "Database", value: "SQL Server · PostgreSQL · MySQL · MongoDB · Redis · Oracle (PL/SQL) · Supabase · SQLite · GraphQL", level: 90 },
+  { icon: "cloud", label: "Cloud & DevOps", value: "Linux · Docker · Azure · Vercel · Firebase · Apache Airflow · Git · GitHub · GitLab · IIS · Nginx · CI/CD", level: 82 },
+  { icon: "check", label: "Testing & Tools", value: "REST APIs · Postman · Swagger · xUnit · NUnit · Jira · JWT/OAuth2 · Clean Architecture · SOLID Principles", level: 86 },
 ];
 
-const aboutDescription = "I am a dedicated Full-Stack Software Developer with expertise in ASP.NET, building scalable, high-performance applications.";
+const aboutDescription = "I am a dedicated Full-Stack Software Developer with expertise in ASP.NET, building scalable, high-performance web and mobile applications using modern architecture patterns and cloud technologies.";
 
 function Arrow() {
   return <span aria-hidden="true" className="arrow">↗</span>;
@@ -83,7 +83,8 @@ function DocumentMark() {
 }
 
 function SkillIcon({ name }: { name: string }) {
-  const paths = {
+  const iconMap: Record<string, React.ReactNode> = {
+    // Generic icons (fallback)
     code: <><path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 6l-4 12" /></>,
     database: <><ellipse cx="12" cy="5" rx="7" ry="3" /><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7" /></>,
     server: <><rect x="4" y="4" width="16" height="6" rx="1" /><rect x="4" y="14" width="16" height="6" rx="1" /><path d="M8 7h.01M8 17h.01" /></>,
@@ -91,7 +92,8 @@ function SkillIcon({ name }: { name: string }) {
     cloud: <path d="M7 18h10a4 4 0 0 0 .7-7.9A6 6 0 0 0 6.1 8.7 4.5 4.5 0 0 0 7 18Z" />,
     check: <><path d="m5 12 4 4L19 6" /><circle cx="12" cy="12" r="9" /></>,
   };
-  return <svg className="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name as keyof typeof paths]}</svg>;
+  
+  return <svg className="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{iconMap[name] || iconMap.code}</svg>;
 }
 
 export default function Home() {
@@ -200,13 +202,13 @@ export default function Home() {
           <div className="about-layout"><div className="portrait"><div className="portrait-header"><span>Md. Abdul Latif Siyam</span></div><div className="portrait-body"><img src="/passport.jpg" alt="Md. Abdul Latif Siyam" loading="lazy" decoding="async" /></div><div className="portrait-footer"><span>Full-Stack Software Developer</span></div></div><div className="about-text"><p className="lead"><InfoIcon name="user" /><span>{aboutTypedText}<b className="about-typing-cursor">|</b></span></p><div className="profile-details"><p><b>Full Name</b>Md. Abdul Latif (Siyam)</p><p><b>Role</b>Full-Stack Software Developer</p><p><b>Location</b><span className="detail-value"><InfoIcon name="pin" />ECB Chattar, Dhaka Cantonment</span></p><p><b>Email</b><span className="detail-value"><InfoIcon name="mail" /><a href="mailto:mdabdullatifsiyam733@gmail.com">mdabdullatifsiyam733@gmail.com</a></span></p><p><b>Phone</b><span className="detail-value"><InfoIcon name="phone" /><span><a href="tel:01909424048">01909424048</a> / <a href="tel:01636238098">01636238098</a></span></span></p><p className="profiles-detail"><b>Profiles</b><span className="profiles-links"><a className="social-link linkedin-link" href="https://www.linkedin.com/in/mdalsiyam/" target="_blank" rel="noreferrer"><span className="social-icon"><LinkedInMark /></span> LinkedIn</a><a className="social-link github-link" href="https://github.com/MdALSiyam" target="_blank" rel="noreferrer"><span className="social-icon"><GitHubMark /></span> GitHub</a></span></p></div><p className="objective-continuation">I thrive on applying my technical expertise to solve real-world problems while continuously growing within an innovative, forward-thinking organization. I am adept at leveraging the full .NET ecosystem to build efficient software.</p></div></div>
         </section>
 
-        <section className="old-section history-section" id="experience"><div className="old-heading"><div><h2>Experience &amp; Certifications</h2><i /></div></div><div className="split-history"><div className="history-column"><h3 className="history-label">Professional Experience</h3><div className="old-timeline"><div><h3>Junior Software Engineer</h3><b>August 2025 — July 2026</b><p>Biometric &amp; Sales Commission Team<br />NAAS Solutions Limited</p></div><div><h3>ASP.NET Developer</h3><b>May 2025 — July 2025</b><p>Internship, part-time &amp; remote<br />Itransition Group</p></div></div></div><div className="history-column"><h3 className="history-label">Certifications &amp; Training</h3><div className="old-timeline"><div><h3>Cross-Platform Applications</h3><b>June 2024 — May 2025</b><p>ASP.NET, Angular, React<br />IsDB-BISEW IT Scholarship</p></div><div><h3>Web Development</h3><b>January 2024 — June 2024</b><p>PHP-Laravel<br />BITM</p></div></div></div></div></section>
+        <section className="old-section history-section" id="experience"><div className="old-heading"><div><h2>Experience &amp; Certifications</h2><i /></div></div><div className="split-history"><div className="history-column"><h3 className="history-label">Professional Experience</h3><div className="old-timeline"><div><h3>Software Engineer</h3><b>July 2025 — Sep 2026</b><p>Biometric Team<br />NAAS Solutions Limited</p></div><div><h3>Trainee Programmer</h3><b>June 2024 — May 2025</b><p>Contractual<br />Star Computer Systems Limited</p></div><div><h3>.NET Developer</h3><b>May 2025 — July 2025</b><p>Remote Internship<br />Itransition Group</p></div></div></div><div className="history-column"><h3 className="history-label">Certifications &amp; Training</h3><div className="old-timeline"><div><h3>App Development with Flutter AI &amp; ML</h3><b>2026</b><p>National Academy for Computer Training &amp; Research<br /></p></div><div><h3>Cross-Platform Apps (ASP.NET, Angular, React)</h3><b>2025</b><p>IsDB – Bangladesh Islamic Solidarity Educational Wakf<br /></p></div><div><h3>Web Application Development (PHP &amp; Laravel)</h3><b>2024</b><p>BASIS Institute of Technology &amp; Management<br /></p></div><div><h3>Web Design &amp; UI/UX Frontend Development</h3><b>2023</b><p>eShikhon IT Training Institute<br /></p></div></div></div></div></section>
 
         <section className="old-section" id="work"><div className="old-heading"><div><h2>Projects</h2><i /></div></div><div className="old-project-grid">{projects.map((project) => <article className="old-project" key={project.name}><h3>{project.name}</h3><p>{project.description}</p><div>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></article>)}</div></section>
 
         <section className="old-section" id="skills"><div className="old-heading"><div><h2>Technical Skills</h2></div></div><div className="old-skills">{skills.map((skill) => <div className="old-skill" key={skill.label}><div className="skill-label"><span className="skill-icon"><SkillIcon name={skill.icon} /></span><strong>{skill.label}</strong></div><div className="skill-track"><span style={{ "--skill-level": `${skill.level}%` } as CSSProperties} /></div><p>{skill.value}</p></div>)}</div></section>
 
-        <section className="old-section history-section education-section" id="education"><div className="old-heading"><div><h2>Education</h2><i /></div></div><div className="split-history education-columns"><div className="history-column"><h3 className="history-label">Higher Education</h3><div className="old-timeline"><div><b>IELTS (Academic)</b><h3>Compass Education Limited</h3><p>Overall — 6.0 out of 9.0<br />July, 2026</p></div><div><b>BSc in Botany</b><h3>Jagannath University</h3><p>CGPA — 3.10 out of 4.00<br />2019 — 2023</p></div></div></div><div className="history-column"><h3 className="history-label">Secondary Education</h3><div className="old-timeline"><div><b>HSC in Science</b><h3>Shaheed Ramizuddin Cantonment College</h3><p>GPA — 4.25 out of 5.00<br />2016 — 2018</p></div><div><b>SSC in Science</b><h3>Adarsha Biddya Niketan Manikdi</h3><p>GPA — 5.00 out of 5.00<br />2014 — 2016</p></div></div></div></div></section>
+        <section className="old-section history-section education-section" id="education"><div className="old-heading"><div><h2>Education</h2><i /></div></div><div className="split-history education-columns"><div className="history-column"><h3 className="history-label">Higher Education</h3><div className="old-timeline"><div><b>BSc in Botany</b><h3>Jagannath University</h3><p>CGPA — 3.10 out of 4.00<br />2019 — 2023</p></div><div><b>IELTS (Academic)</b><h3>Compass Education Limited</h3><p>Overall — 6.0 out of 9.0<br />2024</p></div></div></div><div className="history-column"><h3 className="history-label">Secondary Education</h3><div className="old-timeline"><div><b>HSC in Science</b><h3>Shaheed Ramizuddin Cantonment College</h3><p>GPA — 4.25 out of 5.00<br />2016 — 2018</p></div><div><b>SSC in Science</b><h3>Adarsha Biddya Niketan Manikdi</h3><p>GPA — 5.00 out of 5.00<br />2014 — 2016</p></div></div></div></div></section>
 
         <section className="old-section references-section" id="references"><div className="old-heading"><div><h2>References</h2><i /></div></div><div className="references-block"><div className="reference-heading"><span className="reference-icon"><InfoIcon name="user" /></span><div><h3>Professional References</h3></div></div><div className="reference-list"><article><h3>Nishat Sharmeen</h3><p>Senior Software Engineer</p><p>Star Computer Systems Limited, Green Road</p><div className="reference-contact"><a href="tel:01681448988"><InfoIcon name="phone" />01681448988</a><a href="mailto:nishatsharmeen@gmail.com"><InfoIcon name="mail" />nishatsharmeen@gmail.com</a></div></article><article><h3>Md. Mohsin Alam</h3><p>Junior Assistant Vice President</p><p>Shahjalal Islami Bank PLC, Motijheel Branch</p><div className="reference-contact"><a href="tel:01917031058"><InfoIcon name="phone" />01917031058</a><a href="mailto:mohsin3168@sibl.com"><InfoIcon name="mail" />mohsin3168@sibl.com</a></div></article></div></div></section>
 
