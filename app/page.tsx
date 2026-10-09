@@ -114,10 +114,6 @@ function SkillIcon({ name }: { name: string }) {
   return <svg className="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{iconMap[name] || iconMap.code}</svg>;
 }
 
-function getItemIcon(item: string) {
-  return <span className="item-dot" />;
-}
-
 export default function Home() {
   const phrases = ["Full-Stack Software Developer", ".NET Developer", "Software Engineer"];
   const [phraseIndex, setPhraseIndex] = useState(0);
